@@ -1,6 +1,7 @@
 // src/App.js
 import React from 'react';
-import Login from './components/login/login'; // Đảm bảo đường dẫn bắt đầu bằng './'
+import Login from './components/login/login'; 
+
 
 function App() {
   return (

@@ -25,7 +25,11 @@ const Login = () => {
             <div className="logo">
                 <img src={logo} alt="Logo" />
             </div>
+            <div className="dream-text">
+                <p>Let your dream fly - Let your dream fly - Let your dream fly - Let your dream fly - Let your dream fly - Let your dream fly - Let your dream fly - Let your dream fly</p>
+            </div>
         </div>
+
     );
 };
 

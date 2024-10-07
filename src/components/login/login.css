@@ -1,8 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+body {
+    overflow: hidden; /* Ẩn thanh cuộn của toàn trang */
+}
+.title {
+    text-align: left; /* Căn giữa tiêu đề */
+    margin-bottom: 10px; /* Khoảng cách dưới tiêu đề */
+}
+
+.page-title {
+    font-family: 'Tahoma';
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 28px; /* Kích thước chữ */
+}
+
 .container {
     display: flex; /* Sử dụng Flexbox */
     align-items: center; /* Căn giữa theo chiều dọc */
     justify-content: flex-start; /* Căn trái */
     height: 100vh; /* Chiều cao của container */
+    position: relative; /* Thiết lập vị trí cho container */
+
     
 }
 
@@ -95,4 +113,26 @@ form button {
     height: 100%; /* Đảm bảo logo chiếm toàn bộ chiều cao của phần tử cha */
     object-fit: contain; /* Đảm bảo logo giữ tỷ lệ và không bị biến dạng */
 }
+.dream-text {
+    position: absolute; /* Vị trí tuyệt đối để có thể điều chỉnh */
+    bottom: 20px; /* Căn dưới với khoảng cách */
+    left: 0; /* Bắt đầu từ bên trái */
+    width: 100%; /* Chiều rộng 100% */
+    color: white; /* Màu chữ trắng */
+    font-family: 'Dancing Script', cursive; /* Sử dụng font chữ đã chỉ định */
+    font-size: 24px; /* Kích thước chữ */
+    white-space: nowrap; /* Không ngắt dòng */
+    animation: scroll 15s linear infinite; /* Hiệu ứng chạy */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%); /* Bắt đầu từ bên phải */
+    }
+    100% {
+        transform: translateX(-100%); /* Kết thúc bên trái */
+    }
+}
+
+
 
