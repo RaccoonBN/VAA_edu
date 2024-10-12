@@ -1,0 +1,20 @@
+.home body {
+  margin: 0;
+  padding: 0;
+  font-family: Tahoma, sans-serif; /* Font chữ Tahoma */
+  background-color: white;
+}
+
+.home {
+  display: flex;
+  justify-content: center; /* Canh giữa nội dung */
+  align-items: center; /* Canh giữa theo chiều dọc */
+  height: 100vh; /* Chiều cao bằng 100% viewport */
+  text-align: center; /* Canh giữa chữ */
+}
+
+.home h1 {
+  font-size: 3rem; /* Kích thước chữ lớn */
+  font-weight: bold;
+  color: white; 
+}

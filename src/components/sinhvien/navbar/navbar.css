@@ -1,0 +1,132 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #4297DE, #88D5F4); /* Gradient màu nền */
+  padding: 10px;
+  color: white;
+  position: fixed; /* Giữ navbar ở đầu trang */
+  top: 0; /* Đặt navbar ở trên cùng */
+  left: 0; /* Bắt đầu từ bên trái */
+  padding: 10px 20px; /* Thêm padding cho liên kết */
+  right: 0; /* Đến bên phải */
+  z-index: 1000; /* Đảm bảo navbar nằm trên các thành phần khác */
+  font-family: Tahoma, sans-serif; /* Sử dụng font Tahoma */
+}
+.navbarLogo {
+  height: 50px; /* Điều chỉnh chiều cao của logo */
+  width: 50px;
+  margin-left: 10px; /* Khoảng cách bên trái logo */
+  margin-right: 20px; /* Khoảng cách bên phải logo */
+}
+.menu-icon {
+  font-size: 30px; /* Tăng kích thước của menu icon */
+  cursor: pointer;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  padding: 0; /* Bỏ padding */
+  margin: 0; /* Bỏ margin */
+}
+
+.navbar li {
+  margin: 0 50px; /* Tăng khoảng cách giữa các tab */
+}
+
+.navbar li a {
+  text-decoration: none; /* Bỏ gạch chân */
+  color: white; /* Màu chữ */
+  font-weight: bold; /* In đậm */
+  font-size: 18px; /* Tăng kích thước chữ */
+  display: flex; /* Sử dụng flexbox */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  transition: color 0.3s, transform 0.3s; /* Hiệu ứng chuyển đổi */
+}
+
+.navbar li a:hover {
+  color: #88D5F4; /* Màu chữ khi di chuột */
+  transform: scale(1.1); /* Phóng to khi di chuột */
+}
+
+.icon {
+  margin-right: 8px; /* Khoảng cách giữa icon và chữ */
+  font-size: 20px; /* Kích thước biểu tượng */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+/* CSS cho sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px; /* Chiều rộng của sidebar */
+  height: 100%; /* Chiều cao đầy đủ */
+  background: linear-gradient(to right, #4297DE, #88D5F4); /* Gradient cho sidebar */
+  padding: 20px;
+  color: white;
+  z-index: 1001; /* Đảm bảo sidebar nằm trên navbar */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Đổ bóng cho sidebar */
+  display: flex; /* Sử dụng flexbox để sắp xếp các mục */
+  flex-direction: column; /* Đặt hướng sắp xếp theo cột */
+}
+
+.sidebar-header {
+  text-align: center; /* Căn giữa nội dung header */
+  margin-bottom: 20px;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 24px; /* Kích thước chữ cho tiêu đề */
+}
+
+.sidebar-header p {
+  margin: 5px 0 0; /* Khoảng cách cho tên */
+  font-size: 18px; /* Kích thước chữ cho tên */
+}
+
+.sidebar-list {
+  list-style: none; /* Bỏ dấu chấm đầu dòng */
+  flex-wrap: wrap; /* Cho phép các mục xuống dòng */
+  padding: 0; /* Bỏ padding */
+  margin: 0; /* Bỏ margin */
+  flex-grow: 1; /* Chiếm không gian còn lại của sidebar */
+}
+
+.sidebar-list li {
+  flex: 1 0 45%; /* Chiếm 45% chiều rộng của sidebar */
+  margin: 10px; /* Khoảng cách giữa các mục */
+  box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước */
+  height: 45px; /* Chiều cao cố định cho mỗi mục */
+}
+
+.sidebar-list li a {
+  display: flex; /* Sử dụng flexbox cho các mục */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  background: white; /* Nền trắng cho các mục */
+  color: #4297DE; /* Màu chữ cho các mục */
+  font-weight: bold; /* In đậm */
+  font-size: 12px; /* Kích thước chữ */
+  text-align: center; /* Căn giữa chữ */
+  padding: 10px; /* Padding cho các mục */
+  border-radius: 10px; /* Bo góc cho các mục */
+  transition: background 0.3s, color 0.3s; /* Hiệu ứng chuyển đổi */
+  justify-content: center;
+}
+
+.sidebar-list li a:hover {
+  background: #88D5F4; /* Màu nền khi di chuột */
+  color: white; /* Màu chữ khi di chuột */
+}

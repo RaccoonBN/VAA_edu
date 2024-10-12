@@ -8,14 +8,4 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Tahoma", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-image: url('./img/bglogin.png'); /* Đường dẫn đúng tới ảnh */
-  background-repeat: no-repeat; /* Sửa ở đây */
-  background-size: cover; /* Đảm bảo ảnh phủ kín màn hình */
-  background-position: center; /* Căn giữa ảnh */
-}
+
