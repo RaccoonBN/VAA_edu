@@ -1,0 +1,144 @@
+.lshpwrapper {
+    width: 1300px;
+    height: auto;
+    background: linear-gradient(to bottom, #4297DE, #88D5F4);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 100px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.lshpcontainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.lshpflex {
+    display: flex;
+}
+
+.lshpjustify-between {
+    justify-content: space-between;
+}
+
+.lshpitems-center {
+    align-items: center;
+}
+
+.lshpcursor-pointer {
+    cursor: pointer;
+}
+
+.lshpmt-8 {
+    margin-top: 2rem;
+}
+
+.lshpjustify-center {
+    justify-content: center;
+}
+
+.lshpp-2 {
+    padding: 0.5rem;
+}
+
+.lshptext-xl {
+    font-size: 1.25rem;
+}
+
+.lshprounded-full {
+    border-radius: 9999px;
+}
+
+.lshpwrapper {
+    background: linear-gradient(to bottom, #4297DE, #88D5F4);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.lshpcourse-list-wrapper {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.lshpmenu {
+    background: linear-gradient(to bottom, #4297DE, #88D5F4);
+    color: white;
+    padding: 10px 20px;
+}
+
+.lshptext-button {
+    color: #4297DE;
+}
+
+.lshptext-center {
+    text-align: center;
+}
+
+.lshpgradient-button {
+    background: white;
+    color: #4297DE;
+    border: none;
+    margin-top: 20px;
+}
+
+.lshpgradient-button:hover {
+    background: white;
+}
+
+.lshpcourse-list .course-item {
+    color: #4297de;
+    font-weight: bold;
+    text-align: center;
+}
+
+.lshpcourse-border {
+    border: 2px solid #4297de;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.lshpselect-semester-button {
+    background: white;
+    color: #4297DE;
+    padding: 10px 30px;
+    border: 2px solid #4297DE;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lshpselect-semester-button:hover {
+    background: #88D5F4;
+    color: white;
+}
+
+.lshpmt-4 {
+    color: #4297DE;
+}
+
+.lshptext-xl {
+    color: #4297DE;
+}
+
+.lshpbg-white {
+    color: #4297DE;
+    background-color: white;
+}
