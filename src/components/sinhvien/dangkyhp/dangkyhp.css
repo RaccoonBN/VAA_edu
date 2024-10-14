@@ -1,0 +1,174 @@
+.dkhpwrapper {
+    width: 1300px;
+    height: auto;
+    background: linear-gradient(to bottom, #4297DE, #88D5F4);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 100px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.dkhpcontainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.dkhpflex {
+    display: flex;
+}
+
+.dkhpjustify-between {
+    justify-content: space-between;
+}
+
+.dkhpitems-center {
+    align-items: center;
+}
+
+.dkhpcursor-pointer {
+    cursor: pointer;
+}
+
+.dkhpmt-8 {
+    margin-top: 2rem;
+}
+
+.dkhpflex-1 {
+    flex: 1;
+}
+
+.dkhpjustify-center {
+    justify-content: center;
+}
+
+.dkhpp-2 {
+    padding: 0.5rem;
+}
+
+.dkhpmr-2 {
+    margin-right: 0.5rem;
+}
+
+.dkhptext-xl {
+    font-size: 1.25rem;
+}
+
+.dkhprounded-full {
+    border-radius: 9999px;
+}
+
+
+.dkhpcourse-list-wrapper {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.dkhpmenu {
+    background: linear-gradient(to bottom, #4297DE, #88D5F4);
+    color: white;
+    padding: 10px 20px;
+}
+
+.dkhptext-button {
+    color: #4297DE;
+}
+
+.dkhptext-center {
+    text-align: center;
+}
+
+.dkhpbg-white {
+    background-color: white;
+}
+
+.dkhpbutton-spacing {
+    margin: 0 100px;
+    /* Điều chỉnh giá trị này để thay đổi khoảng cách */
+}
+
+.dkhpgradient-button {
+    background: linear-gradient(to bottom, #4297DE, #88D5F4);
+    color: white;
+    /* Màu chữ trắng */
+    border: none;
+    /* Không viền */
+}
+
+.dkhpgradient-button:hover {
+    background: linear-gradient(to bottom, #88D5F4, #4297DE);
+}
+
+.dkhpschedule-cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 cột */
+    gap: 20px;
+    /* Khoảng cách giữa các khung */
+}
+
+.dkhpschedule-card {
+    background: linear-gradient(#88D5F4, #4297DE);
+    /* Màu nền cho khung */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: white;
+}
+
+.dkhptext-xl {
+    color: #4297DE;
+}
+
+.dkhpmt-8 {
+    color: #4297DE;
+}
+
+.dkhpregister-button {
+    background-color: white;
+    color: #4297DE;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.dkhpregister-button:hover {
+    background-color: #88D5F4;
+}
+
+.dkhptext-button {
+    color: #4297DE;
+    /* Set color for buttons */
+}
+
+.dkhpmt-8 {
+    margin-top: 2rem;
+    /* Spacing above buttons */
+}
+
+.button-spacing {
+    margin-right: 20px;
+    /* Adjust spacing between buttons */
+}
+
+.dkhpmt-4 {
+    margin-top: 1rem;
+    /* Spacing below schedule */
+}
+
+.dkhpschedule-card {
+    background: linear-gradient(#88D5F4, #4297DE);
+    /* Background for schedule cards */
+}
