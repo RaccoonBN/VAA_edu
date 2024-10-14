@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/sinhvien/login/login'; 
 import Home from './components/sinhvien/home/home';
 import Dangkyhp from './components/sinhvien/dangkyhp/dangkyhp';
+import Lichsuhp from './components/sinhvien/dangkyhp/lichsuhp';
 import Navbar from './components/sinhvien/navbar/navbar';
 import EditAccount from './components/sinhvien/edit_account/edit_account';
 import Logout from './components/sinhvien/logout'; 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/home" element={<Home />} />
         <Route path="/dangkyhp" element={<Dangkyhp />} />
+        <Route path="/lichsuhp" element={<Lichsuhp />} />
         <Route path="/edit_account" element={<EditAccount />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/thoikhoabieu" element={<Thoikhoabieu />} />
