@@ -1,20 +1,85 @@
-.home body {
-  margin: 0;
-  padding: 0;
-  font-family: Tahoma, sans-serif; /* Font chữ Tahoma */
-  background-color: white;
+.home.app-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
 }
 
-.home {
+.home.navbar {
   display: flex;
-  justify-content: center; /* Canh giữa nội dung */
-  align-items: center; /* Canh giữa theo chiều dọc */
-  height: 100vh; /* Chiều cao bằng 100% viewport */
-  text-align: center; /* Canh giữa chữ */
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0066cc;
+  padding: 10px;
+  color: white;
 }
 
-.home h1 {
-  font-size: 3rem; /* Kích thước chữ lớn */
-  font-weight: bold;
-  color: white; 
+.home.navbar ul {
+  display: flex;
+  list-style: none;
+}
+
+.home.navbar li {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.home.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.home.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.home.main-content {
+  margin-top: 20px;
+}
+
+.home.student-info,
+.home.schedule,
+.home.course-progress {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #f0f8ff;
+  border-radius: 8px;
+}
+
+.home.student-info h2,
+.home.schedule h2,
+.home.course-progress h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.home.schedule-grid {
+  display: flex;
+  gap: 20px;
+}
+
+.home.schedule-item {
+  background-color: #e7f3ff;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  flex: 1;
+}
+
+.home.progress-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.home.progress-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #e7f3ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  text-align: center;
 }
