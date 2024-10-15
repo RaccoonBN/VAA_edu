@@ -1,0 +1,49 @@
+.container {
+    background: linear-gradient(#88D5F4, #4297DE);
+    padding: 20px;
+    height:500px;
+    border-radius: 15px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.week-header {
+    margin-bottom: 20px;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.day {
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.day h3 {
+    color: #0073e6;
+    margin: 0;
+}
+
+.nav-arrows {
+    margin-top: 20px;
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 24px;
+}

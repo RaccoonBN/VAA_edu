@@ -34,7 +34,7 @@ const Navbar = () => {
             <nav>
                 <ul>
                     <li><Link to="/Home"> <FaHome className="icon" />Trang Chủ</Link></li>
-                    <li><Link to="/schedule"><FaCalendarAlt className="icon" />Thời Khóa Biểu</Link></li>
+                    <li><Link to="/Thoikhoabieu"><FaCalendarAlt className="icon" />Thời Khóa Biểu</Link></li>
                     <li><Link to="/Dangkyhp"><FaBook className="icon" />Đăng Ký Học Phần</Link></li>
                 </ul>
             </nav>
@@ -49,7 +49,7 @@ const Navbar = () => {
                         <p>{sinhVien.HoTen}</p>
                     </div>
                     <ul className="sidebar-list">
-                        <li><Link to="/Edit-account"><FaUserCog className="icon" />Chỉnh Sửa Tài Khoản</Link></li>
+                        <li><Link to="/Edit_account"><FaUserCog className="icon" />Chỉnh Sửa Tài Khoản</Link></li>
                         <li><Link to="/Thoikhoabieu"><FaCalendarAlt className="icon" />Thời Khóa Biểu</Link></li>
                         <li><Link to="/Dangkyhp"><FaBook className="icon" />Đăng Ký Học Phần</Link></li>
                         <li><Link to="/Logout"><FaSignOutAlt className="icon" />Đăng Xuất</Link></li>
