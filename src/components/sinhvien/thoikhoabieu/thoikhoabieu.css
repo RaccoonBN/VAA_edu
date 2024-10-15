@@ -1,4 +1,4 @@
-.container {
+.tkbcontainer {
     background: linear-gradient(#88D5F4, #4297DE);
     padding: 20px;
     height:500px;
@@ -11,7 +11,7 @@
     gap: 10px;
 }
 
-.form-container {
+.tkbform-container {
     margin-top: 20px;
     text-align: center;
 }
@@ -20,7 +20,7 @@
     margin-bottom: 20px;
 }
 
-.schedule-grid {
+.tkbschedule-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;

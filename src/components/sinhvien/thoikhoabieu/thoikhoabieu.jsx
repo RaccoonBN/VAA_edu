@@ -39,16 +39,16 @@ const Thoikhoabieu = () => {
     return (
         <div>
         <Navbar sinhVien={sinhVien} />
-        <div className="container">
+        <div className="tkbcontainer">
             {/* Schedule Section */}
-            <div className="form-container">
+            <div className="tkbform-container">
                 <div className="week-header">
                     <h2>Tuần {currentWeek}</h2>
                     <p>30/9/2024 - 6/10/2024</p>
                 </div>
 
                 {/* Schedule Grid */}
-                <div className="schedule-grid">
+                <div className="tkbschedule-grid">
                     {scheduleData.map((item, index) => (
                         <div className="day" key={index}>
                             <h3>{item.day}</h3>
