@@ -18,14 +18,12 @@ const Home = () => {
 
             <main className="main-content">
                 <section className="student-info">
-                    <h2>Thông Tin Sinh Viên</h2>
-                    <div className="avatar">
-                        <img src="../../../img/default-avatar.png" alt="Avatar" /> {/* Avatar mặc định */}
-                    </div>
+                    <h2 >Thông Tin Sinh Viên</h2>
                     <p><strong>Họ tên:</strong> Trần Huỳnh Bảo Ngọc</p>
                     <p><strong>MSSV:</strong> 2254810194</p>
                     <p><strong>Địa chỉ:</strong> 18A/1 Cộng Hòa, phường 5, quận Tân Bình, TP.HCM</p>
                     <p><strong>Trạng thái:</strong> Đang học</p>
+                    
                 </section>
 
                 <div className="content-layout"> {/* Khung bố trí cho thời khóa biểu và biểu đồ */}
@@ -44,6 +42,8 @@ const Home = () => {
                                 <p>Phòng: G305</p>
                                 <p>GV: Nguyễn Lương Anh Tuấn</p>
                             </div>
+                           
+                            
                         </div>
                     </section>
 
