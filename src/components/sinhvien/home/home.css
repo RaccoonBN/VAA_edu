@@ -1,24 +1,38 @@
 .home {
   font-family: 'Arial', sans-serif; /* Font chữ */
   background-color: #f5f5f5; /* Màu nền */
-  padding: 20px; /* Đệm xung quanh container */
+  padding: 10px; /* Đệm xung quanh container */
 }
 
 .main-content {
-  display: flex; /* Sử dụng Flexbox để bố trí */
-  flex-direction: column; /* Hướng bố trí theo cột */
-  gap: 20px; /* Khoảng cách giữa các phần */
+  margin: 20px auto;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #e6f7ff;
+  
+  margin-bottom: 20px;
+  line-height: 1.8; /* Adjusts line spacing */
+  position: relative; /* Helps to position the avatar */
 }
 
-.student-info {
-  background-color: #007bff; /* Màu nền xanh */
-  color: white; /* Màu chữ trắng */
-  padding: 20px; /* Đệm bên trong */
-  border-radius: 8px; /* Bo góc */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
-  display: flex; /* Sử dụng Flexbox */
-  align-items: center; /* Căn giữa theo chiều dọc */
+h2 {
+  color: #1e88e5;
+  margin-bottom: 10px;
 }
+
+p {
+  margin-bottom: 10px;
+}
+
+/* Positioning the avatar on the right */
+.avatar {
+  float: right; /* Positions the avatar to the right */
+  width: 100px; /* Adjust size */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Makes it circular */
+  margin-left: 20px; /* Adds spacing between text and avatar */
+}
+
 
 .avatar {
   margin-right: 20px; /* Khoảng cách bên phải cho avatar */
@@ -33,13 +47,13 @@
 
 .content-layout {
   display: flex; /* Sử dụng Flexbox cho nội dung thời khóa biểu và học phần */
-  gap: 20px; /* Khoảng cách giữa các phần */
+  gap: 70px; /* Khoảng cách giữa các phần */
 }
 
 .schedule,
 .course-progress {
-  background-color: #007bff; /* Màu nền xanh */
-  color: white; /* Màu chữ trắng */
+  background-color: #e6f7ff; /* Màu nền xanh */
+  color: rgba(15, 14, 14, 0.826); /* Màu chữ trắng */
   padding: 20px; /* Đệm bên trong các phần */
   border-radius: 8px; /* Bo góc */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
@@ -53,7 +67,7 @@
 }
 
 .schedule-item {
-  background-color: #0056b3; /* Màu xanh đậm cho các mục thời khóa biểu */
+  background-color: #e6f7ff; /* Màu xanh đậm cho các mục thời khóa biểu */
   padding: 15px; /* Đệm bên trong các mục thời khóa biểu */
   border-radius: 5px; /* Bo góc cho các mục */
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng cho các mục */
@@ -72,7 +86,7 @@
   display: flex; /* Sử dụng Flexbox cho nội dung bên trong */
   align-items: center; /* Căn giữa theo chiều dọc */
   justify-content: center; /* Căn giữa theo chiều ngang */
-  color: #007bff; /* Màu chữ */
+  color:#0c0d0d; /* Màu chữ */
   font-size: 16px; /* Kích thước chữ */
   font-weight: bold; /* Chữ đậm */
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng cho vòng tròn */
