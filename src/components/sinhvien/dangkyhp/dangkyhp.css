@@ -37,6 +37,7 @@ body {
 
 .dkhpmt-8 {
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .dkhpflex-1 {
@@ -92,15 +93,14 @@ body {
 
 .dkhpbutton-spacing {
     margin: 0 100px;
-    /* Điều chỉnh giá trị này để thay đổi khoảng cách */
+
 }
 
 .dkhpgradient-button {
     background: linear-gradient(to bottom, #4297DE, #88D5F4);
     color: white;
-    /* Màu chữ trắng */
     border: none;
-    /* Không viền */
+    margin-top: 2rem;
 }
 
 .dkhpgradient-button:hover {
@@ -111,14 +111,11 @@ body {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* 4 cột */
     gap: 20px;
-    /* Khoảng cách giữa các khung */
 }
 
 .dkhpschedule-card {
     background: linear-gradient(#88D5F4, #4297DE);
-    /* Màu nền cho khung */
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -150,25 +147,20 @@ body {
 
 .dkhptext-button {
     color: #4297DE;
-    /* Set color for buttons */
 }
 
 .dkhpmt-8 {
     margin-top: 2rem;
-    /* Spacing above buttons */
 }
 
 .button-spacing {
     margin-right: 20px;
-    /* Adjust spacing between buttons */
 }
 
 .dkhpmt-4 {
     margin-top: 1rem;
-    /* Spacing below schedule */
 }
 
 .dkhpschedule-card {
     background: linear-gradient(#88D5F4, #4297DE);
-    /* Background for schedule cards */
 }
