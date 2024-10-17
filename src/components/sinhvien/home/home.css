@@ -2,26 +2,48 @@
   font-family: 'Arial', sans-serif; /* Font chữ */
   background-color: #f5f5f5; /* Màu nền */
   padding: 10px; /* Đệm xung quanh container */
+  
+  flex-direction: column;
+  min-height: 100vh;
+
 }
 
 .main-content {
-  margin: 20px auto;
+  width: 1000px;
+  height: 1000px;
+  justify-content: space-between;
+  max-width: 140%;
+  margin: 70px auto;
   border-radius: 10px;
-  padding: 20px;
+  padding: 60px;
   background-color: #e6f7ff;
-  
   margin-bottom: 20px;
   line-height: 1.8; /* Adjusts line spacing */
   position: relative; /* Helps to position the avatar */
 }
 
+
+.student-info {
+  background-color: #e6f7ff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+a {
+  color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 h2 {
   color: #1e88e5;
-  margin-bottom: 10px;
+  margin-top: 0px;
 }
 
 p {
-  margin-bottom: 10px;
+  margin: 5px;
 }
 
 /* Positioning the avatar on the right */
@@ -47,11 +69,13 @@ p {
 
 .content-layout {
   display: flex; /* Sử dụng Flexbox cho nội dung thời khóa biểu và học phần */
-  gap: 70px; /* Khoảng cách giữa các phần */
+  gap: 20px; /* Khoảng cách giữa các phần */
+  justify-content: space-between;
 }
 
 .schedule,
 .course-progress {
+
   background-color: #e6f7ff; /* Màu nền xanh */
   color: rgba(15, 14, 14, 0.826); /* Màu chữ trắng */
   padding: 20px; /* Đệm bên trong các phần */
@@ -69,8 +93,16 @@ p {
 .schedule-item {
   background-color: #e6f7ff; /* Màu xanh đậm cho các mục thời khóa biểu */
   padding: 15px; /* Đệm bên trong các mục thời khóa biểu */
-  border-radius: 5px; /* Bo góc cho các mục */
+  border-radius: 10px; /* Bo góc cho các mục */
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng cho các mục */
+  text-align: center;
+}
+
+.course-progress {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
 }
 
 .progress-container {
@@ -89,7 +121,7 @@ p {
   color:#0c0d0d; /* Màu chữ */
   font-size: 16px; /* Kích thước chữ */
   font-weight: bold; /* Chữ đậm */
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng cho vòng tròn */
+  box-shadow: 0 1px 5px rgba(117, 26, 26, 0.1); /* Hiệu ứng bóng cho vòng tròn */
 }
 
 /* Tùy chọn: Điều chỉnh cho thiết bị di động */
