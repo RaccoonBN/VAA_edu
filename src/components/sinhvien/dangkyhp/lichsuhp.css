@@ -89,7 +89,7 @@ body {
     background: white;
     color: #4297DE;
     border: none;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .lshpgradient-button:hover {
@@ -141,4 +141,5 @@ body {
 .lshpbg-white {
     color: #4297DE;
     background-color: white;
+    margin-bottom: 20px;
 }
