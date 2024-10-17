@@ -1,7 +1,7 @@
 .tkbcontainer {
-    background: linear-gradient(#88D5F4, #4297DE);
+    background: linear-gradient(#f3f4f5, #f2f6f9);
     padding: 20px;
-    height:500px;
+    height:540px;
     border-radius: 15px;
 }
 
@@ -12,30 +12,33 @@
 }
 
 .tkbform-container {
-    margin-top: 20px;
     text-align: center;
 }
 
 .week-header {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    margin-top: 1px;
 }
 
 .tkbschedule-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 5px;
+    width: 100%;
 }
 
 .day {
-    background: white;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    background: linear-gradient(#88D5F4, #4297DE);
+    /* Màu nền cho khung */
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: white;
 }
 
 .day h3 {
-    color: #0073e6;
+    color: #f3f6f9;
     margin: 0;
 }
 
@@ -45,5 +48,6 @@
 
 .arrow {
     cursor: pointer;
-    font-size: 24px;
+    font-size: 36px;
+    color: #f2f6f9;
 }
