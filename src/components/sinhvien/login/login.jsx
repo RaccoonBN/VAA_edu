@@ -14,12 +14,28 @@ const Login = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
+
+        // Kiểm tra định dạng email
+        if (!/\S+@\S+\.\S+/.test(Email)) {
+            toast.error('Email không hợp lệ!', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return;
+        }
+
         try {
-            const res = await axios.post('http://localhost:5000/api/users/login', { Email, Matkhau });
-            // Lưu thông tin người dùng vào localStorage
-            localStorage.setItem('userInfo', JSON.stringify(res.data)); // Lưu thông tin người dùng (nếu cần)
-            localStorage.setItem('MaSV', res.data.MaSV); // Lưu MaSV vào localStorage
+            const res = await axios.post('http://localhost:5000/api/login', { Email, Matkhau });
             
+            // Lưu thông tin người dùng vào localStorage
+            localStorage.setItem('userInfo', JSON.stringify(res.data));
+            localStorage.setItem('MaSV', res.data.MaSV);
+
             toast.success('Đăng nhập thành công!', {
                 position: "top-right",
                 autoClose: 3000,
@@ -29,19 +45,32 @@ const Login = () => {
                 draggable: true,
                 progress: undefined,
             });
+
             setTimeout(() => {
                 navigate('/home'); // Chuyển hướng tới trang Home sau khi đăng nhập thành công
             }, 3000); // Đợi 3 giây trước khi chuyển hướng
         } catch (err) {
-            toast.error('Đăng nhập thất bại! Sai email hoặc mật khẩu.', {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            if (err.response && err.response.status === 400) {
+                toast.error(err.response.data.msg || 'Đăng nhập thất bại!', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            } else {
+                toast.error('Đã xảy ra lỗi. Vui lòng thử lại.', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            }
         }
     };
 

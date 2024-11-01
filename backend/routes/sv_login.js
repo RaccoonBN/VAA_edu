@@ -1,6 +1,5 @@
 const express = require('express');
-const SvLogin = require('../models/SvLogin'); // Model đăng nhập
-const SinhVien = require('../models/sinhvien'); // Model sinh viên
+const db = require('../db'); // Import db connection
 
 const router = express.Router();
 
@@ -9,21 +8,29 @@ router.post('/login', async (req, res) => {
     const { Email, Matkhau } = req.body;
     try {
         // Kiểm tra email có tồn tại không
-        let user = await SvLogin.findOne({ Email });
-        if (!user) {
-            return res.status(400).json({ msg: 'Sai thông tin đăng nhập' });
-        }
+        const query = 'SELECT * FROM taikhoansv WHERE Email = ?';
+        db.query(query, [Email], (err, results) => {
+            if (err) {
+                return res.status(500).json({ msg: 'Lỗi server' });
+            }
 
-        // Kiểm tra mật khẩu
-        if (Matkhau !== user.Matkhau) {
-            return res.status(400).json({ msg: 'Sai mật khẩu' });
-        }
+            if (results.length === 0) {
+                return res.status(400).json({ msg: 'Sai thông tin đăng nhập' });
+            }
 
-        // Lấy mã sinh viên (MaSV) sau khi đăng nhập thành công
-        const MaSV = user.MaSV;
+            const user = results[0];
 
-        // Trả về mã sinh viên để client có thể sử dụng tiếp
-        res.status(200).json({ msg: 'Đăng nhập thành công!', MaSV });
+            // Kiểm tra mật khẩu
+            if (Matkhau !== user.password) {
+                return res.status(400).json({ msg: 'Sai mật khẩu' });
+            }
+
+            // Lấy mã sinh viên (MaSV) sau khi đăng nhập thành công
+            const MaSV = user.MaSV;
+
+            // Trả về mã sinh viên để client có thể sử dụng tiếp
+            res.status(200).json({ msg: 'Đăng nhập thành công!', MaSV });
+        });
     } catch (err) {
         res.status(500).json({ msg: 'Lỗi server' });
     }
