@@ -9,7 +9,7 @@
 }
 
 .main-content {
-  width: 1000px;
+  width: 1000px; /* */
   height: 1000px;
   justify-content: space-between;
   max-width: 140%;
@@ -49,9 +49,10 @@ p {
 /* Positioning the avatar on the right */
 .avatar {
   float: right; /* Positions the avatar to the right */
-  width: 100px; /* Adjust size */
+  width: 200px; /* Adjust size */
   height: auto; /* Maintain aspect ratio */
   border-radius: 50%; /* Makes it circular */
+  margin-top: 50px;
   margin-left: 20px; /* Adds spacing between text and avatar */
 }
 
@@ -77,6 +78,7 @@ p {
 .course-progress {
 
   background-color: #e6f7ff; /* Màu nền xanh */
+
   color: rgba(15, 14, 14, 0.826); /* Màu chữ trắng */
   padding: 20px; /* Đệm bên trong các phần */
   border-radius: 8px; /* Bo góc */
@@ -99,7 +101,7 @@ p {
 }
 
 .course-progress {
-  background-color: #fff;
+  background-color:#e6f7ff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
@@ -111,7 +113,7 @@ p {
 }
 
 .progress-circle {
-  background-color: #e7f0ff; /* Màu xanh nhạt cho vòng tròn tiến độ */
+  background-color: #6191e4; /* Màu xanh nhạt cho vòng tròn tiến độ */
   border-radius: 50%; /* Hình dạng tròn */
   width: 100px; /* Chiều rộng cố định */
   height: 100px; /* Chiều cao cố định */
