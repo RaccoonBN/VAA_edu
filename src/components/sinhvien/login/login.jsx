@@ -30,7 +30,7 @@ const Login = () => {
         }
 
         try {
-            const res = await axios.post('http://localhost:5000/api/login', { Email, Matkhau });
+            const res = await axios.post('http://localhost:5000/api/login/login', { Email, Matkhau });
             
             // Lưu thông tin người dùng vào localStorage
             localStorage.setItem('userInfo', JSON.stringify(res.data));
