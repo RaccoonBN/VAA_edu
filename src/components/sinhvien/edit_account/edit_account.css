@@ -1,0 +1,119 @@
+.editform-container {
+    margin-top: 20px;
+    background: linear-gradient(to bottom, #4297DE, #88D5F4);
+    padding: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1300px;
+}
+
+.edittext {
+    color: white;
+}
+
+.edith2{
+    color: white;
+}
+
+.editform-container form {
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    margin-right: 30px;
+}
+
+.editform-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.editform-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.editform-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.editform-container .editactions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.editform-container .editactions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white;
+    color: #007bff;
+    margin-left: 10px;
+}
+
+.editform-container .editactions .btn-secondary {
+    background-color: white;
+    color: #007bff;
+}
+
+.editform-container .editactions .btn-primary {
+    background-color: white;
+    color: #007bff;
+}
+
+.editform-container .editavatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.editform-container .editavatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.editform-container .editavatar button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.editform-container .edit-actions {
+    display: flex;
+    justify-content: space-between; /* Căn giữa hai nút và tạo khoảng cách */
+    margin-top: 20px; /* Khoảng cách phía trên */
+}
+
+.editform-container .edit-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white;
+    color: white;
+    margin-left: 10px; /* Khoảng cách giữa các nút */
+}
+
+.editform-container .edit-actions button:first-child {
+    margin-left: 0; /* Không tạo khoảng cách bên trái cho nút đầu tiên */
+}
