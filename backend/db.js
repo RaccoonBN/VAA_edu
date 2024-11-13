@@ -1,15 +1,20 @@
-var mysql = require('mysql');
-var db = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : "",
-    database :'vaaedu'
+const mysql = require('mysql2');
+
+const db = mysql.createConnection({
+    host: 'localhost',     
+    user: 'root',  
+    password: '', 
+    database: 'vaaedu'     
 });
-db.connect((err) => {
+
+// Kết nối đến cơ sở dữ liệu
+db.connect(err => {
     if (err) {
-      console.error('Lỗi kết nối MySQL:', err);
-      return;
+        console.error('Lỗi kết nối tới cơ sở dữ liệu:', err);
+        return;
     }
-    console.log('Kết nối thành công tới MySQL!');
-  });
+    console.log('Kết nối tới cơ sở dữ liệu thành công!');
+});
+
+module.exports = db;
 module.exports=db;
