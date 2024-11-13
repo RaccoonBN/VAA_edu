@@ -1,10 +1,11 @@
+
 const express = require('express');
 const db = require('../db'); // Import db connection
 
 const router = express.Router();
 
 // Đăng nhập
-router.post('/login', async (req, res) => {
+router.post('/login', (req, res) => {
     const { Email, Matkhau } = req.body;
     try {
         // Kiểm tra email có tồn tại không
