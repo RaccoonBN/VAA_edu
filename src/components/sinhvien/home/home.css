@@ -2,138 +2,145 @@
   font-family: 'Arial', sans-serif; /* Font chữ */
   background-color: #f5f5f5; /* Màu nền */
   padding: 10px; /* Đệm xung quanh container */
-  
   flex-direction: column;
   min-height: 100vh;
-
 }
 
 .main-content {
-  width: 1000px; /* */
-  height: 1000px;
+  width: 1000px; /* Chiều rộng cố định */
+  height: 1000px; /* Chiều cao cố định */
   justify-content: space-between;
-  max-width: 140%;
+  max-width: 140%; /* Giới hạn chiều rộng */
   margin: 70px auto;
   border-radius: 10px;
   padding: 60px;
   background-color: #e6f7ff;
   margin-bottom: 20px;
-  line-height: 1.8; /* Adjusts line spacing */
-  position: relative; /* Helps to position the avatar */
+  line-height: 1.8; /* Điều chỉnh khoảng cách giữa các dòng */
+  position: relative; /* Để định vị avatar */
 }
 
-
-.student-info {
-  background-color: #e6f7ff;
+/* Bố trí thông tin sinh viên và avatar */
+.student-layout {
+  display: flex;
+  justify-content: space-between; /* Tạo khoảng cách giữa thông tin và avatar */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  gap: 20px; /* Khoảng cách giữa hai phần */
+  background-color: #e6f7ff; /* Màu nền */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
 
-a {
-  color: -webkit-link;
-    cursor: pointer;
-    text-decoration: underline;
+.student-info {
+  flex: 1; /* Chiếm hết không gian bên trái */
 }
 
-h2 {
+.student-info h2 {
   color: #1e88e5;
   margin-top: 0px;
 }
 
-p {
+.student-info p {
   margin: 5px;
 }
 
-/* Positioning the avatar on the right */
+/* Phần avatar */
 .avatar {
-  float: right; /* Positions the avatar to the right */
-  width: 200px; /* Adjust size */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 50%; /* Makes it circular */
-  margin-top: 50px;
-  margin-left: 20px; /* Adds spacing between text and avatar */
-}
-
-
-.avatar {
-  margin-right: 20px; /* Khoảng cách bên phải cho avatar */
+  flex-shrink: 0; /* Đảm bảo avatar không bị co lại */
+  text-align: center; /* Căn giữa nội dung */
 }
 
 .avatar img {
-  width: 100px; /* Kích thước avatar */
-  height: 100px; /* Kích thước avatar */
-  border-radius: 50%; /* Hình tròn cho avatar */
-  object-fit: cover; /* Cắt ảnh cho phù hợp */
+  width: 150px; /* Kích thước ảnh */
+  height: 150px; /* Kích thước ảnh */
+  border-radius: 50%; /* Làm tròn hình ảnh */
+  object-fit: cover; /* Giữ tỷ lệ hình ảnh */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng */
 }
 
+/* Layout cho thời khóa biểu và biểu đồ */
 .content-layout {
-  display: flex; /* Sử dụng Flexbox cho nội dung thời khóa biểu và học phần */
+  display: flex; /* Sử dụng Flexbox */
   gap: 20px; /* Khoảng cách giữa các phần */
   justify-content: space-between;
 }
 
 .schedule,
 .course-progress {
-
   background-color: #e6f7ff; /* Màu nền xanh */
-
-  color: rgba(15, 14, 14, 0.826); /* Màu chữ trắng */
-  padding: 20px; /* Đệm bên trong các phần */
+  color: rgba(15, 14, 14, 0.826); /* Màu chữ */
+  padding: 20px; /* Đệm bên trong */
   border-radius: 8px; /* Bo góc */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
-  flex: 1; /* Chiếm đều không gian còn lại */
+  flex: 1; /* Chiếm đều không gian */
 }
 
+/* Lưới cho thời khóa biểu */
 .schedule-grid {
-  display: grid; /* Sử dụng Grid để bố trí các mục thời khóa biểu */
+  display: grid;
   grid-template-columns: repeat(1, 1fr); /* Một cột */
-  gap: 20px; /* Khoảng cách giữa các mục */
+  gap: 20px;
 }
 
 .schedule-item {
-  background-color: #e6f7ff; /* Màu xanh đậm cho các mục thời khóa biểu */
-  padding: 15px; /* Đệm bên trong các mục thời khóa biểu */
-  border-radius: 10px; /* Bo góc cho các mục */
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng cho các mục */
+  background-color: #e6f7ff; /* Màu nền xanh nhạt */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
 .course-progress {
-  background-color:#e6f7ff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Các vòng tròn tiến độ */
 .progress-container {
-  display: flex; /* Sử dụng Flexbox cho các vòng tròn tiến độ */
-  justify-content: space-around; /* Căn giữa các mục */
+  display: flex;
+  justify-content: space-around;
 }
 
 .progress-circle {
-  background-color: #6191e4; /* Màu xanh nhạt cho vòng tròn tiến độ */
-  border-radius: 50%; /* Hình dạng tròn */
-  width: 100px; /* Chiều rộng cố định */
-  height: 100px; /* Chiều cao cố định */
-  display: flex; /* Sử dụng Flexbox cho nội dung bên trong */
-  align-items: center; /* Căn giữa theo chiều dọc */
-  justify-content: center; /* Căn giữa theo chiều ngang */
-  color:#0c0d0d; /* Màu chữ */
-  font-size: 16px; /* Kích thước chữ */
-  font-weight: bold; /* Chữ đậm */
-  box-shadow: 0 1px 5px rgba(117, 26, 26, 0.1); /* Hiệu ứng bóng cho vòng tròn */
+  background-color: #6191e4; /* Màu nền xanh */
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0c0d0d;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 1px 5px rgba(117, 26, 26, 0.1);
 }
 
-/* Tùy chọn: Điều chỉnh cho thiết bị di động */
+/* Tùy chỉnh responsive */
 @media (max-width: 768px) {
   .schedule-grid {
-      grid-template-columns: 1fr; /* Một cột trên màn hình nhỏ */
+    grid-template-columns: 1fr;
   }
 
   .progress-container {
-      flex-direction: column; /* Xếp chồng các vòng tròn trên màn hình nhỏ */
-      align-items: center; /* Căn giữa */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .student-layout {
+    flex-direction: column; /* Sắp xếp dọc trên màn hình nhỏ */
+    align-items: flex-start;
+  }
+
+  .avatar {
+    margin: 10px 0;
+    text-align: left;
+  }
+
+  .avatar img {
+    width: 120px;
+    height: 120px;
   }
 }
