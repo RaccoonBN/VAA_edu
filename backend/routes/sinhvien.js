@@ -1,6 +1,6 @@
 const express = require('express');
-const db = require('../db'); 
-const multer = require('multer');
+const db = require('../db'); // Import kết nối cơ sở dữ liệu
+const multer = require('multer'); // Import multer để xử lý file upload
 const path = require('path');
 
 const router = express.Router();
@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
         cb(null, 'uploads/'); // Thư mục lưu trữ ảnh
     },
     filename: (req, file, cb) => {
-        cb(null, `${Date.now()}-${file.originalname}`); 
+        cb(null, `${Date.now()}-${file.originalname}`); // Tên file
     },
 });
 const upload = multer({ storage });
@@ -49,7 +49,7 @@ router.get('/:MaSV', (req, res) => {
 // Cập nhật thông tin sinh viên
 router.put('/:MaSV', upload.single('Avatar'), (req, res) => {
     const { MaSV } = req.params;
-    const { HoTen, NgaySinh , DiaChi } = req.body;
+    const { HoTen, NgaySinh ,Email, DiaChi } = req.body;
     let Avatar = req.file ? req.file.path : null; // Lấy đường dẫn ảnh nếu có
 
     const query = 'UPDATE sinhvien SET HoTen = ?, NgaySinh = ?, Email = ?, DiaChi = ?, Avatar = ? WHERE MaSV = ?';
