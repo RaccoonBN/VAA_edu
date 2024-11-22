@@ -3,15 +3,30 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const svLoginRoutes = require('./routes/sv_login');
 const sinhVienRoutes = require('./routes/sinhvien');
-const db = require('./db'); // Import db connection
+const dangkyhpRoutes = require('./routes/dangkyhp');
+const db = require('./db');
+const session = require('express-session');
 
 // Khởi tạo ứng dụng
 const app = express();
 
-// Sử dụng middleware
-app.use(cors());
-app.use(bodyParser.json());
 
+// Sử dụng middleware
+const corsOptions = {
+    origin: 'http://localhost:3000',  // Allow requests only from this origin
+    methods: 'GET,POST',              // Allowed methods
+    credentials: true,                // Allow cookies and session data
+};
+app.use(bodyParser.json());
+app.use(cors(corsOptions));
+
+// Cấu hình session
+app.use(session({
+    secret: 'nhom04', // Thay thế bằng khóa bí mật của bạn
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false } // set secure: true nếu đang sử dụng HTTPS
+}));
 // Kiểm tra kết nối database
 db.connect(err => {
     if (err) {
@@ -21,10 +36,13 @@ db.connect(err => {
         console.log('Kết nối tới cơ sở dữ liệu thành công!');
     }
 });
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // Định tuyến cho các API
-app.use('/api/login', svLoginRoutes); // Đường dẫn cho đăng nhập sinh viên
-app.use('/api/sinhvien', sinhVienRoutes); // Đường dẫn cho thông tin sinh viên
+app.use('/api/login', svLoginRoutes);
+app.use('/api/sinhvien', sinhVienRoutes);
+app.use('/api/courses', dangkyhpRoutes);
+app.use('/api', dangkyhpRoutes);
 
 // Lắng nghe trên cổng 5000
 const PORT = 5000;

@@ -1,5 +1,5 @@
 .home {
-  font-family: 'Arial', sans-serif; /* Font chữ */
+  font-family: Tahoma, sans-serif; /* Sử dụng font Tahoma */
   background-color: #f5f5f5; /* Màu nền */
   padding: 10px; /* Đệm xung quanh container */
   flex-direction: column;

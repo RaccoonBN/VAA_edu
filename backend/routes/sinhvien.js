@@ -16,9 +16,14 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Lấy thông tin sinh viên theo mã sinh viên (MaSV)
-router.get('/:MaSV', (req, res) => {
-    const { MaSV } = req.params; // Lấy MaSV từ tham số URL
+// Lấy thông tin sinh viên dựa trên MaSV từ session
+router.get('/profile', (req, res) => {
+    // Kiểm tra xem người dùng có đăng nhập không (có session không)
+    if (!req.session.user) {
+        return res.status(401).json({ msg: 'Chưa đăng nhập' });
+    }
+
+    const { MaSV } = req.session.user; // Lấy MaSV từ session của người dùng
 
     const query = 'SELECT * FROM sinhvien WHERE MaSV = ?';
     db.query(query, [MaSV], (err, results) => {
@@ -47,9 +52,14 @@ router.get('/:MaSV', (req, res) => {
 });
 
 // Cập nhật thông tin sinh viên
-router.put('/:MaSV', upload.single('Avatar'), (req, res) => {
-    const { MaSV } = req.params;
-    const { HoTen, NgaySinh ,Email, DiaChi } = req.body;
+router.put('/profile', upload.single('Avatar'), (req, res) => {
+    // Kiểm tra xem người dùng có đăng nhập không (có session không)
+    if (!req.session.user) {
+        return res.status(401).json({ msg: 'Chưa đăng nhập' });
+    }
+
+    const { MaSV } = req.session.user; // Lấy MaSV từ session của người dùng
+    const { HoTen, NgaySinh, Email, DiaChi } = req.body;
     let Avatar = req.file ? req.file.path : null; // Lấy đường dẫn ảnh nếu có
 
     const query = 'UPDATE sinhvien SET HoTen = ?, NgaySinh = ?, Email = ?, DiaChi = ?, Avatar = ? WHERE MaSV = ?';

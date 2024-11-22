@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import './login.css'; 
 import { FaLock, FaUser } from "react-icons/fa";
 import axios from 'axios';
-import { toast, ToastContainer } from 'react-toastify'; // Import thư viện Toastify
-import 'react-toastify/dist/ReactToastify.css'; // Import CSS của Toastify
-import { useNavigate } from 'react-router-dom'; // Để điều hướng khi đăng nhập thành công
-import logo from '../../../img/logo.png'; // Đường dẫn chính xác từ login.jsx
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
+import logo from '../../../img/logo.png';
 
 const Login = () => {
     const [Email, setEmail] = useState('');
     const [Matkhau, setMatkhau] = useState('');
-    const navigate = useNavigate(); // Để điều hướng trang
+    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -30,25 +30,25 @@ const Login = () => {
         }
 
         try {
-            const res = await axios.post('http://localhost:5000/api/login/login', { Email, Matkhau });
-            
-            // Lưu thông tin người dùng vào localStorage
-            localStorage.setItem('userInfo', JSON.stringify(res.data));
-            localStorage.setItem('MaSV', res.data.MaSV);
+            const res = await axios.post('http://localhost:5000/api/login/login', { Email, Matkhau }, { withCredentials: true });
 
-            toast.success('Đăng nhập thành công!', {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            if (res.status === 200) {
+                // Session sẽ được lưu ở server và cookies sẽ tự động được gửi về client
+                toast.success('Đăng nhập thành công!', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
 
-            setTimeout(() => {
-                navigate('/home'); // Chuyển hướng tới trang Home sau khi đăng nhập thành công
-            }, 3000); // Đợi 3 giây trước khi chuyển hướng
+                setTimeout(() => {
+                    navigate('/home'); // Chuyển hướng tới trang Home sau khi đăng nhập thành công
+                }, 3000);
+            }
+
         } catch (err) {
             if (err.response && err.response.status === 400) {
                 toast.error(err.response.data.msg || 'Đăng nhập thất bại!', {
@@ -76,7 +76,7 @@ const Login = () => {
 
     return (
         <div className='container'>
-            <ToastContainer /> {/* Thành phần thông báo */}
+            <ToastContainer />
             <div className='wrapper'>
                 <div className='form-box'>
                     <form onSubmit={handleLogin}>
