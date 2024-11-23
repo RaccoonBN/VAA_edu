@@ -11,10 +11,12 @@ router.post('/login', (req, res) => {
         const query = 'SELECT * FROM taikhoansv WHERE Email = ?';
         db.query(query, [Email], (err, results) => {
             if (err) {
+                console.error('Lỗi khi truy vấn:', err);
                 return res.status(500).json({ msg: 'Lỗi server' });
             }
 
             if (results.length === 0) {
+                console.warn('Sai thông tin đăng nhập:', Email);
                 return res.status(400).json({ msg: 'Sai thông tin đăng nhập' });
             }
 
@@ -22,6 +24,7 @@ router.post('/login', (req, res) => {
 
             // Kiểm tra mật khẩu
             if (Matkhau !== user.password) {
+                console.warn('Sai mật khẩu cho tài khoản:', Email);
                 return res.status(400).json({ msg: 'Sai mật khẩu' });
             }
 
@@ -32,10 +35,12 @@ router.post('/login', (req, res) => {
             const studentQuery = 'SELECT HoTen FROM sinhvien WHERE MaSV = ?';
             db.query(studentQuery, [MaSV], (err, studentResults) => {
                 if (err) {
+                    console.error('Lỗi khi lấy thông tin sinh viên:', err);
                     return res.status(500).json({ msg: 'Lỗi server khi lấy thông tin sinh viên' });
                 }
 
                 if (studentResults.length === 0) {
+                    console.warn('Không tìm thấy thông tin sinh viên cho MaSV:', MaSV);
                     return res.status(400).json({ msg: 'Không tìm thấy thông tin sinh viên' });
                 }
 
@@ -43,18 +48,14 @@ router.post('/login', (req, res) => {
                 const hoTen = student.HoTen;
 
                 // Lưu thông tin người dùng vào session
-                req.session.user = {
-                    MaSV,
-                    hoTen
-                };
-                console.log(req.session);  // Debug session sau khi set
-                
+                req.session.user = { MaSV, hoTen };
 
                 // Trả về thông tin sinh viên sau khi đăng nhập thành công
-                res.status(200).json({ msg: 'Đăng nhập thành công!', MaSV, hoTen });
+                res.status(200).json({ msg: 'Đăng nhập thành công!', MaSV, HoTen: hoTen });
             });
         });
     } catch (err) {
+        console.error('Lỗi server:', err);
         res.status(500).json({ msg: 'Lỗi server' });
     }
 });
