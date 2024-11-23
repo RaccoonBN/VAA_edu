@@ -3,14 +3,9 @@ import './lichsuhp.css';
 import Navbar from '../navbar/navbar';
 
 const Lichsuhp = () => {
-    const defaultSinhVien = {
-        HoTen: 'Trần Huỳnh Bảo Ngọc',
-        Avatar: require('../../../img/avatar_default.jpg'), // Đảm bảo đường dẫn này đúng
-    };
+    const [sinhVien, setSinhVien] = useState(null);
+    const [registeredCourses, setRegisteredCourses] = useState([]);
 
-    const [sinhVien, setSinhVien] = useState(defaultSinhVien); // Mặc định thông tin sinh viên
-
-    // Nếu bạn muốn kiểm tra localStorage, bạn có thể làm như sau
     useEffect(() => {
         const storedSinhVien = JSON.parse(localStorage.getItem('sinhVien'));
         if (storedSinhVien) {
@@ -18,44 +13,42 @@ const Lichsuhp = () => {
         }
     }, []);
 
+    useEffect(() => {
+        const fetchRegisteredCourses = async () => {
+            if (sinhVien && sinhVien.MaSV) {
+                try {
+                    const response = await fetch(`http://localhost:5000/api/registered/${sinhVien.MaSV}`);
+                    const data = await response.json();
+                    setRegisteredCourses(data);
+                } catch (error) {
+                    console.error('Lỗi khi lấy danh sách học phần đã đăng ký:', error);
+                }
+            }
+        };
 
-    const courses = [
-        { subject: "Hệ quản trị cơ sở dữ liệu", code: "000002", instructor: "Nguyễn Lương Anh Tuấn" },
-        { subject: "Hệ quản trị cơ sở dữ liệu", code: "000002", instructor: "Nguyễn Lương Anh Tuấn" },
-        { subject: "Hệ quản trị cơ sở dữ liệu", code: "000002", instructor: "Nguyễn Lương Anh Tuấn" },
-        { subject: "Hệ quản trị cơ sở dữ liệu", code: "000002", instructor: "Nguyễn Lương Anh Tuấn" },
-        { subject: "Hệ quản trị cơ sở dữ liệu", code: "000002", instructor: "Nguyễn Lương Anh Tuấn" },
-        { subject: "Hệ quản trị cơ sở dữ liệu", code: "000002", instructor: "Nguyễn Lương Anh Tuấn" },
-        { subject: "Hệ quản trị cơ sở dữ liệu", code: "000002", instructor: "Nguyễn Lương Anh Tuấn" },
-        { subject: "Hệ quản trị cơ sở dữ liệu", code: "000002", instructor: "Nguyễn Lương Anh Tuấn" },
-        { subject: "Hệ quản trị cơ sở dữ liệu", code: "000002", instructor: "Nguyễn Lương Anh Tuấn" },
-    ];
+        fetchRegisteredCourses();
+    }, [sinhVien]);
+
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        const date = new Date(dateString);
+        return date.toLocaleDateString('vi-VN', options);
+    };
+
     return (
         <div>
-            <Navbar sinhVien={sinhVien} /> {/* Truyền sinhVien vào Navbar */}
-            {/* Khung bao bọc cho phần nhập dữ liệu */}
+            <Navbar sinhVien={sinhVien} />
             <div className="lshpwrapper">
-                <div className="lshpmt-8 flex justify-center">
-                    <button className="lshpbg-white text-button p-2 border border-gray-300 rounded-full button-spacing">
-                        CHỌN HỌC KỲ
-                    </button>
+                <h2 className="lshptext-xl text-center text-button">CÁC MÔN HỌC ĐÃ ĐĂNG KÝ</h2>
+                <div className="lshpcourse-border">
+                    <ul className="lshpmt-4 course-list">
+                        {registeredCourses.map((course, index) => (
+                            <li key={index} className="lshptext-center course-item">
+                                ID: {course.MaHP} - Học Phần: {course.tenHP} - Giảng viên: {course.giangvien} - Học kỳ: {course.hocky} - Ngày đăng ký: {formatDate(course.ngaydangky)}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
-
-                <div className="lshpcourse-list-wrapper">
-                    <h2 className="lshptext-xl text-center text-button">CÁC MÔN HỌC ĐÃ ĐĂNG KÝ</h2>
-
-
-                    <div className="lshpcourse-border">
-                        <ul className="lshpmt-4 course-list">
-                            {courses.map((course, index) => (
-                                <li key={index} className="lshptext-center course-item">
-                                    {index + 1}. {course.subject} - MÃ HP: {course.code} - GV: {course.instructor}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-
                 <div className="lshpmt-4 flex justify-center">
                     <button className="lshpgradient-button text-white p-2 border border-gray-300 rounded-full"
                         onClick={() => window.location.href = '/dangkyhp'}>
@@ -63,7 +56,6 @@ const Lichsuhp = () => {
                     </button>
                 </div>
             </div>
-
         </div>
     );
 };
