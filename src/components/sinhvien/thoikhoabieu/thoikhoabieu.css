@@ -44,10 +44,11 @@
 
 .nav-arrows {
     margin-top: 20px;
+    color:#4297DE;
 }
 
 .arrow {
     cursor: pointer;
     font-size: 36px;
-    color: #f2f6f9;
+    color: #3889c7;
 }
