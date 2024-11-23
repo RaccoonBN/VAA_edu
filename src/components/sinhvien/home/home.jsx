@@ -91,9 +91,30 @@ ChartJS.register(ArcElement, Tooltip, Legend);
                         </div>
 
                         <div className="schedule-grid">
-                            {/* Danh sách thời khóa biểu */}
-                        </div>
+                    <div className="schedule-item">
+                        <p>Thứ 2</p>
+                        <p>Hệ Quản Trị Cơ Sở Dữ Liệu</p>
+                        <p>Tiết 1 - 4 (7:00 - 10:35)</p>
+                        <p>Phòng: G305</p>
+                        <p>GV: Nguyễn Lương Anh Tuấn</p>
                     </div>
+                    <div className="schedule-item">
+                        <p>Thứ 4</p>
+                        <p>Hệ Quản Trị Cơ Sở Dữ Liệu</p>
+                        <p>Tiết 1 - 4 (7:00 - 10:35)</p>
+                        <p>Phòng: G305</p>
+                        <p>GV: Nguyễn Lương Anh Tuấn</p>
+                    </div>
+                    <div className="schedule-item">
+                        <p>Thứ 4</p>
+                        <p>Hệ Quản Trị Cơ Sở Dữ Liệu</p>
+                        <p>Tiết 1 - 4 (7:00 - 10:35)</p>
+                        <p>Phòng: G305</p>
+                        <p>GV: Nguyễn Lương Anh Tuấn</p>
+                    </div>
+                </div>
+            </div>
+
 
                     <section className="course-progress">
                         <h2>Học Phần</h2>
