@@ -33,6 +33,10 @@ const Login = () => {
             const res = await axios.post('http://localhost:5000/api/login/login', { Email, Matkhau }, { withCredentials: true });
 
             if (res.status === 200) {
+                // Lưu thông tin sinh viên vào localStorage
+                const { MaSV, HoTen } = res.data; // Đảm bảo server trả về MaSV và HoTen
+                localStorage.setItem('sinhVien', JSON.stringify({ MaSV, HoTen })); // Sử dụng MaSV
+
                 // Session sẽ được lưu ở server và cookies sẽ tự động được gửi về client
                 toast.success('Đăng nhập thành công!', {
                     position: "top-right",
