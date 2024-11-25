@@ -53,14 +53,13 @@ router.get('/profile', (req, res) => {
 
 // Cập nhật thông tin sinh viên
 router.put('/profile', upload.single('Avatar'), (req, res) => {
-    // Kiểm tra xem người dùng có đăng nhập không (có session không)
     if (!req.session.user) {
         return res.status(401).json({ msg: 'Chưa đăng nhập' });
     }
 
-    const { MaSV } = req.session.user; // Lấy MaSV từ session của người dùng
+    const { MaSV } = req.session.user;
     const { HoTen, NgaySinh, Email, DiaChi } = req.body;
-    let Avatar = req.file ? req.file.path : null; // Lấy đường dẫn ảnh nếu có
+    let Avatar = req.file ? req.file.path : null;
 
     const query = 'UPDATE sinhvien SET HoTen = ?, NgaySinh = ?, Email = ?, DiaChi = ?, Avatar = ? WHERE MaSV = ?';
     db.query(query, [HoTen, NgaySinh, Email, DiaChi, Avatar, MaSV], (err, results) => {
