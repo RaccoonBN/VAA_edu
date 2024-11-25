@@ -15,19 +15,9 @@ const EditAccount = () => {
     });
 
     useEffect(() => {
-        const maSV = localStorage.getItem('MaSV');
-
-        if (!maSV) {
-            toast.error('Mã sinh viên không tồn tại trong localStorage.', {
-                position: "top-right",
-                autoClose: 3000,
-            });
-            return;
-        }
-
         const fetchSinhVien = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/sinhvien/${maSV}`);
+                const response = await axios.get('http://localhost:5000/api/sinhvien/profile', { withCredentials: true });
                 setSinhVien(response.data.data);
             } catch (error) {
                 toast.error('Không thể lấy thông tin sinh viên.', {
@@ -48,8 +38,7 @@ const EditAccount = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const maSV = localStorage.getItem('MaSV');
-            await axios.put(`http://localhost:5000/api/sinhvien/${maSV}`, sinhVien);
+            await axios.put('http://localhost:5000/api/sinhvien/profile', sinhVien, { withCredentials: true });
             toast.success('Cập nhật thông tin thành công!', {
                 position: "top-right",
                 autoClose: 3000,
