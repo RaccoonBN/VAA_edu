@@ -94,8 +94,8 @@ const Thoikhoabieu = () => {
                                     <h3>{item.lichhoc || 'Không xác định'}</h3>
                                     <p>{item.tenHP?.toUpperCase() || 'Chưa có môn học'}</p>
                                     <p>({item.thoigianhoc || 'Chưa có thời gian'})</p>
-                                    <p>{item.phonghoc || 'Chưa có phòng học'}</p>
-                                    <p>GV: {item.giangvien || 'Chưa có giảng viên'}</p>
+                                    <p>Phòng: {item.phonghoc || 'Chưa có phòng học'}</p>
+                                    <p>Giảng viên: {item.giangvien || 'Chưa có giảng viên'}</p>
                                 </div>
                             ))
                         ) : (
