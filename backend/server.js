@@ -15,7 +15,7 @@ const app = express();
 // Sử dụng middleware
 const corsOptions = {
     origin: 'http://localhost:3000',  // Allow requests only from this origin
-    methods: 'GET,POST',              // Allowed methods
+    methods: 'GET,POST,PUT',              // Allowed methods
     credentials: true,                // Allow cookies and session data
 };
 app.use(bodyParser.json());
