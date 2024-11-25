@@ -3,22 +3,47 @@ import './thoikhoabieu.css';
 import Navbar from '../navbar/navbar';
 
 const Thoikhoabieu = () => {
-    const defaultSinhVien = {
-        HoTen: 'Trần Huỳnh Bảo Ngọc',
-        Avatar: require('../../../img/avatar_default.jpg'),
-    };
+    const [sinhVien, setSinhVien] = useState(null); // Lưu thông tin sinh viên
+    const [loading, setLoading] = useState(true); // Trạng thái loading
+    const [currentWeek, setCurrentWeek] = useState(1); // Tuần hiện tại
+    const [scheduleData, setScheduleData] = useState([]); // Thời khóa biểu
 
-    const [sinhVien, setSinhVien] = useState(defaultSinhVien);
-
-    useEffect(() => {
-        const storedSinhVien = JSON.parse(localStorage.getItem('sinhVien'));
-        if (storedSinhVien) {
-            setSinhVien(storedSinhVien);
-        }
-    }, []);
-
-    const [currentWeek, setCurrentWeek] = useState(1);
-
+        // Lấy thông tin sinh viên từ localStorage
+        useEffect(() => {
+            const storedSinhVien = JSON.parse(localStorage.getItem('sinhVien'));
+            console.log('Stored sinhVien:', storedSinhVien); // Debug thông tin sinh viên
+            if (storedSinhVien) {
+                setSinhVien(storedSinhVien); // Lưu dữ liệu sinh viên vào state
+            } else {
+                console.warn('Không tìm thấy dữ liệu sinh viên trong localStorage');
+            }
+            setLoading(false); // Hoàn tất việc lấy dữ liệu sinh viên
+        }, []);
+    
+        // Lấy dữ liệu thời khóa biểu từ API
+        useEffect(() => {
+            const fetchSchedule = async () => {
+                try {
+                    const response = await fetch(`http://localhost:5000/api/schedule/${sinhVien.MaSV}`);
+                    const data = await response.json();
+                    console.log('Dữ liệu từ API:', data); // Kiểm tra dữ liệu trả về
+                    if (data.error) {
+                        console.warn('Lỗi từ API:', data.error);
+                    } else {
+                        setScheduleData(data);
+                    }
+                } catch (error) {
+                    console.error('Lỗi khi lấy thời khóa biểu:', error);
+                }
+            };
+        
+            if (sinhVien) {
+                fetchSchedule();
+            }
+        }, [sinhVien]);
+        
+    
+    // Điều hướng tuần
     const handleLeftArrowClick = () => {
         setCurrentWeek((prevWeek) => Math.max(prevWeek - 1, 1));
     };
@@ -27,39 +52,7 @@ const Thoikhoabieu = () => {
         setCurrentWeek((prevWeek) => prevWeek + 1);
     };
 
-    // Dữ liệu thời khóa biểu theo tuần
-    const scheduleData = {
-        1: [
-            { day: 'THỨ 2', subject: 'Lập trình web', time: '7h00 - 10h35', room: 'G305', teacher: 'Nguyễn Lương Anh Tuấn' },
-            { day: 'THỨ 3', subject: 'Cơ sở dữ liệu', time: '7h00 - 10h35', room: 'G305', teacher: 'Nguyễn Lương Anh Tuấn' },
-            { day: 'THỨ 5', subject: 'Quản trị mạng', time: '13h00 - 16h35', room: 'G609', teacher: 'Nguyễn Văn B' },
-            { day: 'THỨ 6', subject: 'Phân tích dữ liệu', time: '7h00 - 10h35', room: 'G102', teacher: 'Trần Văn D' },
-            { day: 'THỨ 7', subject: 'Hệ điều hành', time: '9h00 - 11h35', room: 'G208', teacher: 'Lê Thị C' },
-        ],
-        2: [
-            { day: 'THỨ 2', subject: 'Trí tuệ nhân tạo', time: '7h00 - 10h35', room: 'G101', teacher: 'Nguyễn Lương Anh Tuấn' },
-            { day: 'THỨ 3', subject: 'Phân tích dữ liệu', time: '9h00 - 11h35', room: 'G208', teacher: 'Trần Văn D' },
-            { day: 'THỨ 4', subject: 'Công nghệ phần mềm', time: '13h00 - 16h35', room: 'G305', teacher: 'Nguyễn Văn B' },
-            { day: 'THỨ 5', subject: 'Quản lý dự án', time: '7h00 - 10h35', room: 'G102', teacher: 'Nguyễn Lương Anh Tuấn' },
-            { day: 'THỨ 7', subject: 'Hệ thống thông tin', time: '9h00 - 11h35', room: 'G208', teacher: 'Lê Thị C' },
-        ],
-        3: [
-            { day: 'THỨ 2', subject: 'Lập trình web', time: '7h00 - 10h35', room: 'G305', teacher: 'Nguyễn Lương Anh Tuấn' },
-            { day: 'THỨ 3', subject: 'Cơ sở dữ liệu', time: '7h00 - 10h35', room: 'G305', teacher: 'Nguyễn Lương Anh Tuấn' },
-            { day: 'THỨ 5', subject: 'Quản trị mạng', time: '13h00 - 16h35', room: 'G609', teacher: 'Nguyễn Văn B' },
-            { day: 'THỨ 6', subject: 'Phân tích dữ liệu', time: '7h00 - 10h35', room: 'G102', teacher: 'Trần Văn D' },
-            { day: 'THỨ 7', subject: 'Hệ điều hành', time: '9h00 - 11h35', room: 'G208', teacher: 'Lê Thị C' },
-        ],
-        4: [
-            { day: 'THỨ 2', subject: 'Lập trình web', time: '7h00 - 10h35', room: 'G305', teacher: 'Nguyễn Lương Anh Tuấn' },
-            { day: 'THỨ 3', subject: 'Cơ sở dữ liệu', time: '7h00 - 10h35', room: 'G305', teacher: 'Nguyễn Lương Anh Tuấn' },
-            { day: 'THỨ 5', subject: 'Quản trị mạng', time: '13h00 - 16h35', room: 'G609', teacher: 'Nguyễn Văn B' },
-            { day: 'THỨ 6', subject: 'Phân tích dữ liệu', time: '7h00 - 10h35', room: 'G102', teacher: 'Trần Văn D' },
-            { day: 'THỨ 7', subject: 'Hệ điều hành', time: '9h00 - 11h35', room: 'G208', teacher: 'Lê Thị C' },
-        ],
-    };
-
-    // Tính toán ngày tháng cho tuần hiện tại
+    // Tính khoảng thời gian của tuần
     const calculateWeekRange = (weekNumber) => {
         const startDate = new Date('2024-09-30'); // Ngày bắt đầu tuần 1
         const currentStartDate = new Date(startDate);
@@ -72,30 +65,45 @@ const Thoikhoabieu = () => {
         return `${formatDate(currentStartDate)} - ${formatDate(currentEndDate)}`;
     };
 
+    // Trường hợp đang tải dữ liệu
+    if (loading) {
+        return <div>Đang tải...</div>;
+    }
+
+    // Trường hợp không tìm thấy thông tin sinh viên
+    if (!sinhVien) {
+        return <div>Không tìm thấy thông tin sinh viên</div>;
+    }
+
     return (
         <div>
             <Navbar sinhVien={sinhVien} />
             <div className="tkbcontainer">
                 <div className="tkbform-container">
+                    {/* Hiển thị tuần hiện tại */}
                     <div className="week-header">
                         <h2>Tuần {currentWeek}</h2>
                         <p>{calculateWeekRange(currentWeek)}</p>
                     </div>
 
-                    {/* Schedule Grid */}
+                    {/* Hiển thị thời khóa biểu */}
                     <div className="tkbschedule-grid">
-                        {(scheduleData[currentWeek] || []).map((item, index) => (
-                            <div className="day" key={index}>
-                                <h3>{item.day}</h3>
-                                <p>{item.subject.toUpperCase()}</p>
-                                <p>({item.time})</p>
-                                <p>{item.room}</p>
-                                <p>GV: {item.teacher}</p>
-                            </div>
-                        ))}
+                        {scheduleData.length > 0 ? (
+                            scheduleData.map((item, index) => (
+                                <div className="day" key={index}>
+                                    <h3>{item.lichhoc || 'Không xác định'}</h3>
+                                    <p>{item.tenHP?.toUpperCase() || 'Chưa có môn học'}</p>
+                                    <p>({item.thoigianhoc || 'Chưa có thời gian'})</p>
+                                    <p>{item.phonghoc || 'Chưa có phòng học'}</p>
+                                    <p>GV: {item.giangvien || 'Chưa có giảng viên'}</p>
+                                </div>
+                            ))
+                        ) : (
+                            <div>Không có thời khóa biểu để hiển thị</div>
+                        )}
                     </div>
 
-                    {/* Navigation Arrows */}
+                    {/* Điều hướng tuần */}
                     <div className="nav-arrows">
                         <span className="arrow left-arrow" onClick={handleLeftArrowClick}>
                             ←

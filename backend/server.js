@@ -5,6 +5,7 @@ const svLoginRoutes = require('./routes/sv_login');
 const sinhVienRoutes = require('./routes/sinhvien');
 const dangkyhpRoutes = require('./routes/dangkyhp');
 const lichSuDKHPRoutes = require('./routes/lichsudkhp');
+const thoikhoabieuRoutes = require('./routes/thoikhoabieu')
 const db = require('./db');
 const session = require('express-session');
 
@@ -44,6 +45,7 @@ app.use('/api/login', svLoginRoutes);
 app.use('/api/sinhvien', sinhVienRoutes);
 app.use('/api/courses', dangkyhpRoutes);
 app.use('/api', dangkyhpRoutes);
+app.use('/api', thoikhoabieuRoutes);
 app.use('/api', lichSuDKHPRoutes);
 
 // Lắng nghe trên cổng 5000

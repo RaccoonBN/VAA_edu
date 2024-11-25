@@ -10,6 +10,16 @@ ChartJS.register(ArcElement, Tooltip, Legend);
         const [sinhVien, setSinhVien] = useState(null); // Lưu thông tin sinh viên
         const [loading, setLoading] = useState(true);
 
+        useEffect(() => {
+            const storedSinhVien = JSON.parse(localStorage.getItem('sinhVien'));
+            console.log('Stored sinhVien:', storedSinhVien); // Debug thông tin sinh viên
+            if (storedSinhVien) {
+              setSinhVien(storedSinhVien);
+            } else {
+              console.warn('Không tìm thấy dữ liệu sinh viên trong localStorage');
+            }
+          }, []);
+          
     useEffect(() => {
         fetch('http://localhost:5000/api/sinhvien/profile', {
             credentials: 'include',  // Đảm bảo gửi cookie phiên làm việc

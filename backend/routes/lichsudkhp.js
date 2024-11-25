@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db'); // Đảm bảo đường dẫn này đúng
+const db = require('../db'); 
 
 // Lấy danh sách học phần đã đăng ký của sinh viên
 router.get('/registered/:studentId', (req, res) => {

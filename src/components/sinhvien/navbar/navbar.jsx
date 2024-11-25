@@ -9,6 +9,16 @@ const Navbar = () => {
     const [loading, setLoading] = useState(true); // State kiểm tra trạng thái đang tải dữ liệu sinh viên
 
     useEffect(() => {
+        const storedSinhVien = JSON.parse(localStorage.getItem('sinhVien'));
+        console.log('Stored sinhVien:', storedSinhVien); // Debug thông tin sinh viên
+        if (storedSinhVien) {
+          setSinhVien(storedSinhVien);
+        } else {
+          console.warn('Không tìm thấy dữ liệu sinh viên trong localStorage');
+        }
+      }, []);
+      
+    useEffect(() => {
         fetch('http://localhost:5000/api/sinhvien/profile', {
             credentials: 'include',  
         })
