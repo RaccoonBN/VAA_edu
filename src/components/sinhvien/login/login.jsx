@@ -57,7 +57,7 @@ const Login = () => {
             if (err.response && err.response.status === 400) {
                 toast.error(err.response.data.msg || 'Đăng nhập thất bại!', {
                     position: "top-right",
-                    autoClose: 3000,
+                    autoClose: 1000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -67,7 +67,7 @@ const Login = () => {
             } else {
                 toast.error('Đã xảy ra lỗi. Vui lòng thử lại.', {
                     position: "top-right",
-                    autoClose: 3000,
+                    autoClose: 1000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,

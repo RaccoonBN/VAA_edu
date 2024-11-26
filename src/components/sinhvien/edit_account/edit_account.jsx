@@ -29,6 +29,7 @@ const EditAccount = () => {
 
         fetchSinhVien();
     }, []);
+    const avatarUrl = require('../../../img/avatar_default.jpg'); 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -41,12 +42,12 @@ const EditAccount = () => {
             await axios.put('http://localhost:5000/api/sinhvien/profile', sinhVien, { withCredentials: true });
             toast.success('Cập nhật thông tin thành công!', {
                 position: "top-right",
-                autoClose: 3000,
+                autoClose: 2000,
             });
         } catch (error) {
             toast.error('Cập nhật thông tin thất bại!', {
                 position: "top-right",
-                autoClose: 3000,
+                autoClose: 2000,
             });
         }
     };
@@ -68,8 +69,8 @@ const EditAccount = () => {
                     </div>
                 </form>
                 <div>
-                    <img src={sinhVien.Avatar || './avatar.png'} alt="Avatar" />
-                    <button>Chọn ảnh</button>
+                <img className="user-avatar" src={avatarUrl} alt="Avatar" />
+                <button>Chọn ảnh</button>
                 </div>
             </div>
         </div>

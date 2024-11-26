@@ -9,6 +9,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
     const Home = () => {
         const [sinhVien, setSinhVien] = useState(null); // Lưu thông tin sinh viên
         const [loading, setLoading] = useState(true);
+        const [scheduleData, setScheduleData] = useState([]); // Thời khóa biểu
 
         useEffect(() => {
             const storedSinhVien = JSON.parse(localStorage.getItem('sinhVien'));
@@ -20,6 +21,28 @@ ChartJS.register(ArcElement, Tooltip, Legend);
             }
           }, []);
           
+                  // Lấy dữ liệu thời khóa biểu từ API
+        useEffect(() => {
+            const fetchSchedule = async () => {
+                try {
+                    const response = await fetch(`http://localhost:5000/api/schedule/${sinhVien.MaSV}`);
+                    const data = await response.json();
+                    console.log('Dữ liệu từ API:', data); // Kiểm tra dữ liệu trả về
+                    if (data.error) {
+                        console.warn('Lỗi từ API:', data.error);
+                    } else {
+                        setScheduleData(data);
+                    }
+                } catch (error) {
+                    console.error('Lỗi khi lấy thời khóa biểu:', error);
+                }
+            };
+        
+            if (sinhVien) {
+                fetchSchedule();
+            }
+        }, [sinhVien]);
+
     useEffect(() => {
         fetch('http://localhost:5000/api/sinhvien/profile', {
             credentials: 'include',  // Đảm bảo gửi cookie phiên làm việc
@@ -101,28 +124,20 @@ ChartJS.register(ArcElement, Tooltip, Legend);
                         </div>
 
                         <div className="schedule-grid">
-                    <div className="schedule-item">
-                        <p>Thứ 2</p>
-                        <p>Hệ Quản Trị Cơ Sở Dữ Liệu</p>
-                        <p>Tiết 1 - 4 (7:00 - 10:35)</p>
-                        <p>Phòng: G305</p>
-                        <p>GV: Nguyễn Lương Anh Tuấn</p>
+                        {scheduleData.length > 0 ? (
+                            scheduleData.map((item, index) => (
+                                <div key={index} className="schedule-item">
+                                    <h3>{item.lichhoc || 'Không xác định'}</h3>
+                                    <p>{item.tenHP?.toUpperCase() || 'Chưa có môn học'}</p>
+                                    <p>({item.thoigianhoc || 'Chưa có thời gian'})</p>
+                                    <p>Phòng: {item.phonghoc || 'Chưa có phòng học'}</p>
+                                    <p>Giảng viên: {item.giangvien || 'Chưa có giảng viên'}</p>
+                                </div>
+                            ))
+                        ) : (
+                            <p>Không có dữ liệu thời khóa biểu.</p>
+                        )}
                     </div>
-                    <div className="schedule-item">
-                        <p>Thứ 4</p>
-                        <p>Hệ Quản Trị Cơ Sở Dữ Liệu</p>
-                        <p>Tiết 1 - 4 (7:00 - 10:35)</p>
-                        <p>Phòng: G305</p>
-                        <p>GV: Nguyễn Lương Anh Tuấn</p>
-                    </div>
-                    <div className="schedule-item">
-                        <p>Thứ 4</p>
-                        <p>Hệ Quản Trị Cơ Sở Dữ Liệu</p>
-                        <p>Tiết 1 - 4 (7:00 - 10:35)</p>
-                        <p>Phòng: G305</p>
-                        <p>GV: Nguyễn Lương Anh Tuấn</p>
-                    </div>
-                </div>
             </div>
 
 

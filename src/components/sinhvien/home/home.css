@@ -1,141 +1,146 @@
 .home {
-  font-family: Tahoma, sans-serif; /* Sử dụng font Tahoma */
-  background-color: #f5f5f5; /* Màu nền */
-  padding: 10px; /* Đệm xung quanh container */
+  font-family: "Segoe UI", Tahoma, sans-serif; /* Font chữ hiện đại */
+  background-color: #ffffff; /* Nền trắng tinh gọn */
+  padding: 10px;
   flex-direction: column;
   min-height: 100vh;
 }
 
 .main-content {
-  width: 1000px; /* Chiều rộng cố định */
-  height: 1000px; /* Chiều cao cố định */
-  justify-content: space-between;
-  max-width: 140%; /* Giới hạn chiều rộng */
+  width: 1000px;
+  height: auto; /* Tự động theo nội dung */
   margin: 70px auto;
+  padding: 40px;
   border-radius: 10px;
-  padding: 60px;
-  background-color: #e6f7ff;
-  margin-bottom: 20px;
-  line-height: 1.8; /* Điều chỉnh khoảng cách giữa các dòng */
-  position: relative; /* Để định vị avatar */
+  background-color: #f9fbfd; /* Màu nền sáng nhẹ */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng mềm */
+  line-height: 1.8;
 }
 
-/* Bố trí thông tin sinh viên và avatar */
 .student-layout {
   display: flex;
-  justify-content: space-between; /* Tạo khoảng cách giữa thông tin và avatar */
-  align-items: center; /* Căn giữa theo chiều dọc */
-  gap: 20px; /* Khoảng cách giữa hai phần */
-  background-color: #e6f7ff; /* Màu nền */
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
   padding: 20px;
+  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
 
 .student-info {
-  flex: 1; /* Chiếm hết không gian bên trái */
+  flex: 1;
 }
 
 .student-info h2 {
-  color: #1e88e5;
-  margin-top: 0px;
+  color: #2a7ae4; /* Màu xanh đậm */
+  margin-top: 0;
+  font-size: 24px; /* Phông chữ lớn hơn */
 }
 
 .student-info p {
-  margin: 5px;
+  margin: 5px 0;
+  color: #555; /* Màu chữ xám đậm dễ đọc */
+  font-size: 16px;
 }
 
-/* Phần avatar */
 .avatar {
-  flex-shrink: 0; /* Đảm bảo avatar không bị co lại */
-  text-align: center; /* Căn giữa nội dung */
+  flex-shrink: 0;
+  text-align: center;
 }
 
 .avatar img {
-  width: 150px; /* Kích thước ảnh */
-  height: 150px; /* Kích thước ảnh */
-  border-radius: 50%; /* Làm tròn hình ảnh */
-  object-fit: cover; /* Giữ tỷ lệ hình ảnh */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng */
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Layout cho thời khóa biểu và biểu đồ */
 .content-layout {
-  display: flex; /* Sử dụng Flexbox */
-  gap: 20px; /* Khoảng cách giữa các phần */
+  display: flex;
+  gap: 20px;
   justify-content: space-between;
 }
 
 .schedule,
 .course-progress {
-  background-color: #e6f7ff; /* Màu nền xanh */
-  color: rgba(15, 14, 14, 0.826); /* Màu chữ */
-  padding: 20px; /* Đệm bên trong */
-  border-radius: 8px; /* Bo góc */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
-  flex: 1; /* Chiếm đều không gian */
+  background-color: #ffffff; /* Màu nền trắng */
+  color: #333; /* Màu chữ tối */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
 }
 
-/* Lưới cho thời khóa biểu */
 .schedule-grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr); /* Một cột */
-  gap: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Khoảng cách nhỏ hơn */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f6f9fc;
 }
 
 .schedule-item {
-  background-color: #e6f7ff; /* Màu nền xanh nhạt */
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.course-progress {
-  padding: 20px;
-  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 15px;
+  color: #444;
 }
 
-/* Các vòng tròn tiến độ */
+.schedule-item:hover {
+  background-color: #e6f1fa;
+  transition: background-color 0.3s ease;
+}
+
+.schedule-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.schedule-grid::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 4px;
+}
+
 .progress-container {
   display: flex;
   justify-content: space-around;
 }
 
 .progress-circle {
-  background-color: #6191e4; /* Màu nền xanh */
+  background-color: #2a7ae4;
   border-radius: 50%;
   width: 100px;
   height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0c0d0d;
-  font-size: 16px;
+  color: #ffffff;
+  font-size: 18px;
   font-weight: bold;
-  box-shadow: 0 1px 5px rgba(117, 26, 26, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-/* Tùy chỉnh responsive */
 @media (max-width: 768px) {
-  .schedule-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .progress-container {
-    width: 300px;
-    margin: 0 auto;
+  .content-layout {
+    flex-direction: column;
   }
 
   .student-layout {
-    flex-direction: column; /* Sắp xếp dọc trên màn hình nhỏ */
+    flex-direction: column;
     align-items: flex-start;
   }
 
   .avatar {
-    margin: 10px 0;
+    margin-bottom: 20px;
     text-align: left;
   }
 
