@@ -40,7 +40,7 @@ const Login = () => {
                 // Session sẽ được lưu ở server và cookies sẽ tự động được gửi về client
                 toast.success('Đăng nhập thành công!', {
                     position: "top-right",
-                    autoClose: 3000,
+                    autoClose: 1000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,

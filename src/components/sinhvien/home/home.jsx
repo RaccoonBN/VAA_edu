@@ -21,7 +21,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
             }
           }, []);
           
-                  // Lấy dữ liệu thời khóa biểu từ API
+        // Lấy dữ liệu thời khóa biểu từ API
         useEffect(() => {
             const fetchSchedule = async () => {
                 try {
@@ -45,7 +45,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
     useEffect(() => {
         fetch('http://localhost:5000/api/sinhvien/profile', {
-            credentials: 'include',  // Đảm bảo gửi cookie phiên làm việc
+            credentials: 'include',
         })
             .then((response) => response.json())
             .then((data) => {
@@ -56,7 +56,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
             })
             .catch((error) => {
                 console.error('Lỗi khi lấy thông tin sinh viên:', error);
-                setLoading(false); // Đổi trạng thái loading dù có lỗi
+                setLoading(false); // Đổi trạng thái loading nếu có lỗi
             });
     }, []); // Chạy khi component được mount
 
@@ -78,7 +78,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
         plugins: {
             legend: {
                 display: true,
-                position: 'bottom', // Vị trí hiển thị chú thích
+                position: 'bottom', 
             },
         },
     };
@@ -139,10 +139,8 @@ ChartJS.register(ArcElement, Tooltip, Legend);
                         )}
                     </div>
             </div>
-
-
                     <section className="course-progress">
-                        <h2>Học Phần</h2>
+                        <h2>HỌC PHẦN</h2>
                         <a href="#">Xem chi tiết</a>
                         <div className="progress-container">
                             <Doughnut data={data} options={options} />

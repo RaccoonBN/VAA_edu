@@ -18,10 +18,10 @@ router.post('/register/:courseId', (req, res) => {
     const { courseId } = req.params;
     const { studentId, ngaydangky } = req.body;
 
-    // Khởi tạo giao dịch
+    // Khởi tạo giao tác
     db.beginTransaction((err) => {
         if (err) {
-            return res.status(500).json({ error: 'Lỗi khi bắt đầu giao dịch' });
+            return res.status(500).json({ error: 'Lỗi khi bắt đầu giao tác' });
         }
 
         // Kiểm tra xem sinh viên đã đăng ký học phần này chưa
@@ -72,11 +72,11 @@ router.post('/register/:courseId', (req, res) => {
                                 });
                             }
 
-                            // Cam kết giao dịch
+                            // Cam kết giao tác
                             db.commit((err) => {
                                 if (err) {
                                     return db.rollback(() => {
-                                        return res.status(500).json({ error: 'Lỗi khi cam kết giao dịch' });
+                                        return res.status(500).json({ error: 'Lỗi khi cam kết giao tác' });
                                     });
                                 }
                                 res.json({ message: 'Đăng ký học phần thành công' });

@@ -74,6 +74,13 @@
   flex: 1;
 }
 
+.course-progress h2 {
+  color: #2a7ae4; 
+}
+
+.schedule h2{
+  color: #2a7ae4; 
+}
 .schedule-grid {
   max-height: 400px;
   overflow-y: auto;
